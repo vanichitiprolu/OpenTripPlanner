@@ -3,6 +3,9 @@ package org.opentripplanner.ext.flex.trip;
 import org.opentripplanner.model.StopLocation;
 import org.opentripplanner.model.StopTime;
 import org.opentripplanner.model.Trip;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 public class ScheduledDeviatedTrip extends FlexTrip {
   static final int MISSING_VALUE = -999;
@@ -35,4 +38,10 @@ public class ScheduledDeviatedTrip extends FlexTrip {
       this.dropOffTypes[i] = st.getDropOffType();
     }
   }
+
+  @Override
+  public Collection<StopLocation> getStops() {
+    return new HashSet<>(Arrays.asList(stops));
+  }
+
 }

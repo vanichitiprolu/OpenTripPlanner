@@ -3,6 +3,9 @@ package org.opentripplanner.ext.flex.trip;
 import org.opentripplanner.model.StopLocation;
 import org.opentripplanner.model.StopTime;
 import org.opentripplanner.model.Trip;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 public class UnscheduledTrip extends FlexTrip {
@@ -41,6 +44,11 @@ public class UnscheduledTrip extends FlexTrip {
       this.pickupTypes[i] = st.getPickupType();
       this.dropOffTypes[i] = st.getDropOffType();
     }
+  }
+
+  @Override
+  public Collection<StopLocation> getStops() {
+    return new HashSet<>(Arrays.asList(stops));
   }
 
 }
