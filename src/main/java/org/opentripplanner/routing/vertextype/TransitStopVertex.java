@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 
@@ -49,6 +50,16 @@ public class TransitStopVertex extends Vertex {
         this.wheelchairEntrance = stop.getWheelchairBoarding() != WheelChairBoarding.NOT_POSSIBLE;
         //Adds this vertex into graph envelope so that we don't need to loop over all vertices
         graph.expandToInclude(stop.getLon(), stop.getLat());
+    }
+
+    @Override
+    public String getName() {
+        return stop.getName();
+    }
+
+    @Override
+    public String getName(Locale locale) {
+        return stop.getName();
     }
 
     public boolean hasWheelchairEntrance() {
